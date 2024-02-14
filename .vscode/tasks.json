@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "devfile",
+			"command": "npm install",
+			"workdir": "${PROJECTS_ROOT}/delivery-service/app",
+			"component": "maven",
+			"problemMatcher": [],
+			"label": "devfile: 1. Install NPM",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},		
+		{
+			"type": "devfile",
+			"command": "mvn clean install -DskipTest",
+			"workdir": "${PROJECTS_ROOT}/delivery-service/app",
+			"component": "maven",
+			"problemMatcher": [],
+			"label": "devfile: 2. Package the application",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}			
+		},
+		{
+			"type": "devfile",
+			"command": "java -jar target/*.jar",
+			"workdir": "${PROJECTS_ROOT}/delivery-service/app",
+			"component": "maven",
+			"problemMatcher": [],
+			"label": "devfile: 3. Run the application",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+
+	]
+}
