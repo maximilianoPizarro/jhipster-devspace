@@ -32,16 +32,16 @@ components:
 commands:
   - id: install
     exec:
-      workingDir: '${PROJECTS_ROOT}/delivery-service'
+      workingDir: '${PROJECTS_ROOT}/delivery-service/app'
       commandLine: 'npm install'
       component: maven
   - id: build
     exec:
-      workingDir: '${PROJECTS_ROOT}/delivery-service'
+      workingDir: '${PROJECTS_ROOT}/delivery-service/app'
       commandLine: 'mvn clean install -DskipTest'
       component: maven             
   - id: run
     exec:
-      workingDir: '${PROJECTS_ROOT}/delivery-service'
+      workingDir: '${PROJECTS_ROOT}/delivery-service/app'
       commandLine: 'java -jar target/*.jar'
       component: maven             
