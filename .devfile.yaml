@@ -34,26 +34,11 @@ commands:
     exec:
       workingDir: '${CHE_PROJECTS_ROOT}/delivery-service'
       type: exec
-      command: npm install
+      commandLine: npm install
       component: maven
   - id: Build and run
     exec:
       workingDir: '${CHE_PROJECTS_ROOT}/delivery-service'
       type: exec
-      command: mvn clean install -DskipTest
+      commandLine: mvn clean install -DskipTest
       component: maven
-  - id: Debug remote java application
-    exec:
-      - referenceContent: |
-          {
-           "version": "0.2.0",
-           "configurations": [
-             {
-               "type": "java",
-               "name": "Debug (Attach) - Remote",
-               "request": "attach",
-               "hostName": "localhost",
-               "port": 8080
-             }]
-           }
-        type: vscode-launch
