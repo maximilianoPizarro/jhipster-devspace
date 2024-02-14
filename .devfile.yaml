@@ -28,4 +28,20 @@ components:
         - value: '-XX:MaxRAMPercentage=50.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xms20m -Djava.security.egd=file:/dev/./urandom -Duser.home=/home/jboss'
           name: JAVA_OPTS
         - value: $(JAVA_OPTS)
-          name: MAVEN_OPTS   
+          name: MAVEN_OPTS
+commands:
+  - id: install
+    exec:
+      workingDir: '${PROJECTS_ROOT}/delivery-service'
+      commandLine: 'npm install'
+      component: maven
+  - id: build
+    exec:
+      workingDir: '${PROJECTS_ROOT}/delivery-service'
+      commandLine: 'mvn clean install -DskipTest'
+      component: maven             
+  - id: run
+    exec:
+      workingDir: '${PROJECTS_ROOT}/delivery-service'
+      commandLine: 'java -jar target/*.jar'
+      component: maven             

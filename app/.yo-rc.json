@@ -42,6 +42,15 @@
     "jwtSecretKey": "NGY0Y2NiZmU3NjlhMjcyYzFiZTk2MDBiM2QxZDU3MzBhNWVkNDJiMTUwMzhiODJhZjcxZTAyZWZiNzY3NGNhODk1OGY0OGQ0ZGVhMWNlZGQ5NmFjMjg4MmFkMTRlYmM1YjIyMWEzMWFmZWViYjFkY2I2N2FmNjM5ZDU4ZjVlNmY=",
     "devServerPort": 9060,
     "clientPackageManager": "npm",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "appsFolders": ["delivery-service"],
+    "directoryPath": "../",
+    "clusteredDbApps": {},
+    "monitoring": "no",
+    "dockerRepositoryName": "mpizarro-dev",
+    "dockerPushCommand": "docker push",
+    "openshiftNamespace": "mpizarro-dev",
+    "storageType": "ephemeral",
+    "registryReplicas": 2
   }
 }
