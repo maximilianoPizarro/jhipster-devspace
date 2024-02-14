@@ -1,0 +1,63 @@
+schemaVersion: 2.2.0
+metadata:
+  name: delivery-service
+  version: 2.2.0
+components:
+  - id: redhat/java11/latest
+    preferences:
+      java.server.launchMode: Standard
+    type: chePlugin
+  - name: m2
+    volume:
+      size: 512Mi          
+  - name: config
+    volume:
+      size: 512Mi
+  - name: npm
+    volume:
+      size: 512Mi  
+  - alias: maven
+    container:  
+      image: 'quay.io/maximilianopizarro/codeready-jhipster@sha256:cff26c55fda6d79b75570f012161a0aad771b0052b63db97d9aab26d806fa6ad'
+      mountSources: true
+      memoryLimit: 1024Mi
+      volumeMounts:
+        - name: m2
+          path: /home/jboss/.m2
+        - name: config
+          path: /home/jboss/.config
+        - name: npm
+          path: /home/jboss/.npm
+      env:
+        - value: '-XX:MaxRAMPercentage=50.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xms20m -Djava.security.egd=file:/dev/./urandom -Duser.home=/home/jboss'
+          name: JAVA_OPTS
+        - value: $(JAVA_OPTS)
+          name: MAVEN_OPTS   
+commands:
+  - name: 1. Build
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/delivery-service'
+        type: exec
+        command: npm install
+        component: maven
+  - name: 2. Build and run
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/delivery-service'
+        type: exec
+        command: mvn clean install -DskipTest
+        component: maven
+  - name: Debug remote java application
+    actions:
+      - referenceContent: |
+          {
+           "version": "0.2.0",
+           "configurations": [
+             {
+               "type": "java",
+               "name": "Debug (Attach) - Remote",
+               "request": "attach",
+               "hostName": "localhost",
+               "port": 8080
+             }]
+           }
+        type: vscode-launch
