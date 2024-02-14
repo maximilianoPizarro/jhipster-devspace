@@ -33,10 +33,10 @@ commands:
   - id: Build
     exec:
       workingDir: '${CHE_PROJECTS_ROOT}/delivery-service'
-      commandLine: npm install
+      commandLine: 'npm install'
       component: maven
   - id: Build and run
     exec:
       workingDir: '${CHE_PROJECTS_ROOT}/delivery-service'
-      commandLine: mvn clean install -DskipTest
+      commandLine: 'mvn clean install -DskipTest'
       component: maven
