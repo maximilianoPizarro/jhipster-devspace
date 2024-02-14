@@ -9,7 +9,7 @@
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/main/screenshot/coverjhipster.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/coverjhipster.PNG?raw=true" width="684" title="Run On Openshift">
 </p>  
 
 
