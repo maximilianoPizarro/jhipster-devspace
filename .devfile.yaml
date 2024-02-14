@@ -12,7 +12,7 @@ components:
   - name: npm
     volume:
       size: 512Mi  
-  - name: delivery-service
+  - name: maven
     container:  
       image: 'quay.io/maximilianopizarro/codeready-jhipster@sha256:cff26c55fda6d79b75570f012161a0aad771b0052b63db97d9aab26d806fa6ad'
       mountSources: true
@@ -30,20 +30,20 @@ components:
         - value: $(JAVA_OPTS)
           name: MAVEN_OPTS   
 commands:
-  - name: 1. Build
-    actions:
+  - id: 1. Build
+    exec:
       - workdir: '${CHE_PROJECTS_ROOT}/delivery-service'
         type: exec
         command: npm install
         component: maven
-  - name: 2. Build and run
-    actions:
+  - id: 2. Build and run
+    exec:
       - workdir: '${CHE_PROJECTS_ROOT}/delivery-service'
         type: exec
         command: mvn clean install -DskipTest
         component: maven
-  - name: Debug remote java application
-    actions:
+  - id: Debug remote java application
+    exec:
       - referenceContent: |
           {
            "version": "0.2.0",
