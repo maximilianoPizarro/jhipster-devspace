@@ -3,10 +3,6 @@ metadata:
   name: delivery-service
   version: 2.2.0
 components:
-  - id: redhat/java11/latest
-    preferences:
-      java.server.launchMode: Standard
-    type: chePlugin
   - name: m2
     volume:
       size: 512Mi          
@@ -16,7 +12,7 @@ components:
   - name: npm
     volume:
       size: 512Mi  
-  - alias: maven
+  - name: delivery-service
     container:  
       image: 'quay.io/maximilianopizarro/codeready-jhipster@sha256:cff26c55fda6d79b75570f012161a0aad771b0052b63db97d9aab26d806fa6ad'
       mountSources: true
