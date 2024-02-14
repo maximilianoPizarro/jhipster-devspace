@@ -1,0 +1,15 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["app"],
+    "directoryPath": "/projects/delivery-service/",
+    "clusteredDbApps": {},
+    "serviceDiscoveryType": false,
+    "monitoring": "no",
+    "jwtSecretKey": "M2I3ZTcyMWQ2YTIzMGVhOWMwZDZmYTc1MmIzYzVhZTAxMWNjYTc0NzNlYjczZDkyYTdkN2EzZjM4MGEwYjQwZTBiNzM1OTBhOTU4YTNkMDkwMzA3ODBlOWUwM2JlMDdjOWMwZA==",
+    "dockerRepositoryName": "image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev",
+    "dockerPushCommand": "docker push",
+    "openshiftNamespace": "maximilianopizarro5-dev",
+    "storageType": "ephemeral",
+    "registryReplicas": 2
+  }
+}
