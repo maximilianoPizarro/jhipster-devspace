@@ -29,14 +29,3 @@ components:
           name: JAVA_OPTS
         - value: $(JAVA_OPTS)
           name: MAVEN_OPTS   
-commands:
-  - id: Build
-    exec:
-      workingDir: '${PROJECTS_ROOT}/delivery-service'
-      commandLine: 'npm install'
-      component: maven
-  - id: Build and run
-    exec:
-      workingDir: '${PROJECTS_ROOT}/delivery-service'
-      commandLine: 'mvn clean install -DskipTest'
-      component: maven
