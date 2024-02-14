@@ -30,18 +30,18 @@ components:
         - value: $(JAVA_OPTS)
           name: MAVEN_OPTS   
 commands:
-  - id: 1. Build
+  - id: Build
     exec:
-      - workdir: '${CHE_PROJECTS_ROOT}/delivery-service'
-        type: exec
-        command: npm install
-        component: maven
-  - id: 2. Build and run
+      workingDir: '${CHE_PROJECTS_ROOT}/delivery-service'
+      type: exec
+      command: npm install
+      component: maven
+  - id: Build and run
     exec:
-      - workdir: '${CHE_PROJECTS_ROOT}/delivery-service'
-        type: exec
-        command: mvn clean install -DskipTest
-        component: maven
+      workingDir: '${CHE_PROJECTS_ROOT}/delivery-service'
+      type: exec
+      command: mvn clean install -DskipTest
+      component: maven
   - id: Debug remote java application
     exec:
       - referenceContent: |
