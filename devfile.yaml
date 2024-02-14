@@ -1,0 +1,59 @@
+schemaVersion: 2.1.0
+metadata:
+  name: delivery-service
+  version: 2.1.0
+components:
+  - name: maven
+    container:  
+      image: 'quay.io/maximilianopizarro/codeready-jhipster@sha256:cff26c55fda6d79b75570f012161a0aad771b0052b63db97d9aab26d806fa6ad'
+      mountSources: true
+      cpuLimit: '4'
+      cpuRequest: '1'
+      memoryLimit: '8G'
+      memoryRequest: '4G'
+      volumeMounts:
+        - name: m2
+          path: /home/jboss/.m2
+        - name: config
+          path: /home/jboss/.config
+        - name: npm
+          path: /home/jboss/.npm
+      endpoints:
+        - exposure: public
+          name: delivery-service
+          protocol: https
+          targetPort: 8080          
+      env:
+        - value: '-XX:MaxRAMPercentage=50.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xms20m -Djava.security.egd=file:/dev/./urandom -Duser.home=/home/jboss'
+          name: JAVA_OPTS
+        - value: $(JAVA_OPTS)
+          name: MAVEN_OPTS
+  - name: m2
+    volume:
+      size: 512Mi          
+  - name: config
+    volume:
+      size: 512Mi
+  - name: npm
+    volume:
+      size: 512Mi            
+commands:
+  - id: install
+    exec:
+      label: "1. Install NPM"
+      component: maven      
+      workingDir: ${PROJECTS_ROOT}/delivery-service/app
+      commandLine: "npm install"
+  - id: build
+    exec:
+      label: "2. Package the application"    
+      component: maven             
+      workingDir: ${PROJECTS_ROOT}/delivery-service/app
+      commandLine: "mvn clean install -DskipTest"
+  - id: run
+    exec:
+      label: "3. Run the application"    
+      component: maven                   
+      workingDir: ${PROJECTS_ROOT}/delivery-service/app
+      commandLine: "java -jar target/*.jar"
+
