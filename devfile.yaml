@@ -44,16 +44,24 @@ commands:
       component: maven      
       workingDir: ${PROJECTS_ROOT}/delivery-service/app
       commandLine: "npm install"
+      group:
+        kind: build
+        isDefault: true
   - id: build
     exec:
       label: "2. Package the application"    
       component: maven             
       workingDir: ${PROJECTS_ROOT}/delivery-service/app
       commandLine: "mvn clean install -DskipTest"
+      group:
+        kind: build
+        isDefault: true
   - id: run
     exec:
       label: "3. Run the application"    
       component: maven                   
       workingDir: ${PROJECTS_ROOT}/delivery-service/app
       commandLine: "java -jar target/*.jar"
-
+      group:
+        kind: run
+        isDefault: true
