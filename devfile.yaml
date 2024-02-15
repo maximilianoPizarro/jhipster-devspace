@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: delivery-service
+  name: jhipster-devspace
   version: 2.1.0
 components:
   - name: maven
@@ -20,7 +20,7 @@ components:
           path: /home/jboss/.npm
       endpoints:
         - exposure: public
-          name: delivery-service
+          name: jhipster-devspace
           protocol: https
           targetPort: 8080          
       env:
@@ -42,7 +42,7 @@ commands:
     exec:
       label: "1. Install NPM"
       component: maven      
-      workingDir: ${PROJECTS_ROOT}/delivery-service/app
+      workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
       commandLine: "npm install"
       group:
         kind: build
@@ -51,7 +51,7 @@ commands:
     exec:
       label: "2. Package the application"    
       component: maven             
-      workingDir: ${PROJECTS_ROOT}/delivery-service/app
+      workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
       commandLine: "mvn clean install -DskipTest"
       group:
         kind: build
@@ -60,7 +60,7 @@ commands:
     exec:
       label: "3. Run the application"    
       component: maven                   
-      workingDir: ${PROJECTS_ROOT}/delivery-service/app
+      workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
       commandLine: "java -jar target/*.jar"
       group:
         kind: run

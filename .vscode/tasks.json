@@ -4,7 +4,7 @@
 		{
 			"type": "devfile",
 			"command": "npm install",
-			"workdir": "${PROJECTS_ROOT}/delivery-service/app",
+			"workdir": "${PROJECTS_ROOT}/jhipster-devspace/app",
 			"component": "maven",
 			"problemMatcher": [],
 			"label": "devfile: 1. Install NPM",
@@ -16,7 +16,7 @@
 		{
 			"type": "devfile",
 			"command": "mvn clean install -DskipTest",
-			"workdir": "${PROJECTS_ROOT}/delivery-service/app",
+			"workdir": "${PROJECTS_ROOT}/jhipster-devspace/app",
 			"component": "maven",
 			"problemMatcher": [],
 			"label": "devfile: 2. Package the application",
@@ -28,7 +28,7 @@
 		{
 			"type": "devfile",
 			"command": "java -jar target/*.jar",
-			"workdir": "${PROJECTS_ROOT}/delivery-service/app",
+			"workdir": "${PROJECTS_ROOT}/jhipster-devspace/app",
 			"component": "maven",
 			"problemMatcher": [],
 			"label": "devfile: 3. Run the application",

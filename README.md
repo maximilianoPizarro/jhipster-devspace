@@ -9,17 +9,17 @@
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/coverjhipster.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/coverjhipster.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 ## Install JHipster DevSpace on OpenShift Dev Spaces
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/install-jhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/install-jhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/install-jhipster-devspace-2.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/install-jhipster-devspace-2.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 
@@ -28,7 +28,7 @@
 
 1. Open terminal and run:
 
-[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 delivery-service]$ rm -r app && mkdir app
+[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 jhipster-devspace]$ rm -r app && mkdir app
 
 ```
 rm -r app && mkdir app
@@ -41,7 +41,7 @@ cp template-jdl/delivery-model.jdl app
 ```
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/jhipster-studio.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-studio.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 3. Run 'jhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started :
@@ -53,7 +53,7 @@ jhipster jdl delivery-model.jdl
 ```bash
 Output:
 
-[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 delivery-service]$ cd app
+[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 jhipster-devspace]$ cd app
 [jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 app]$ jhipster jdl delivery-model.jdl
 INFO! Using JHipster version installed globally
 INFO! Executing import-jdl delivery-model.jdl
@@ -74,7 +74,7 @@ INFO! Generating 1 application.
                             https://www.jhipster.tech
 
 Welcome to JHipster v7.1.0
-Application files will be generated in folder: /projects/delivery-service/app
+Application files will be generated in folder: /projects/jhipster-devspace/app
  _______________________________________________________________________________________________________________
 
   Documentation for creating an application is at https://www.jhipster.tech/creating-an-app/
@@ -619,11 +619,11 @@ Sponsored with ❤️  by @oktadev.
 ```
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/jhipster-delivery-devspace-run.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-delivery-devspace-run.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/delivery-service/blob/master/screenshot/jhipster-delivery.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-delivery.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 
@@ -635,16 +635,16 @@ Sponsored with ❤️  by @oktadev.
 
 INFO! Using JHipster version installed globally
 ⭕ [*BETA*] Welcome to the JHipster OpenShift Generator ⭕
-Files will be generated in folder: /projects/delivery-service or in the root directory path that you select in the subsequent step
+Files will be generated in folder: /projects/jhipster-devspace or in the root directory path that you select in the subsequent step
 Docker version 1.10.0 or later is not installed on your computer.
          Read http://docs.docker.com/engine/installation/#installation
 
 
 Found .yo-rc.json config file...
 ? Which *type* of application would you like to deploy? Monolithic application
-? Enter the root directory where your applications are located /projects/delivery-service
-The path "/projects/delivery-service" does not end with a trailing "/", adding it anyway.
-1 applications found at /projects/delivery-service/
+? Enter the root directory where your applications are located /projects/jhipster-devspace
+The path "/projects/jhipster-devspace" does not end with a trailing "/", adding it anyway.
+1 applications found at /projects/jhipster-devspace/
 ? Which applications do you want to include in your configuration? app
 ? Do you want to setup monitoring for your applications ? No
 ? What should we use for the OpenShift namespace? maximilianopizarro5-dev
@@ -655,7 +655,7 @@ rro5-dev
 
 Checking Docker images in applications directories...
 ```
-ls: no such file or directory: /projects/delivery-service/app/target/jib-cache
+ls: no such file or directory: /projects/jhipster-devspace/app/target/jib-cache
    create ocp/ocp-apply.sh
     force app/.yo-rc.json
     force .yo-rc.json
@@ -671,7 +671,7 @@ If you forgot to generate the Docker image for this application, please run:
 To generate the missing Docker image(s), please run:
 
 ```
-  ./mvnw -ntp -Pprod verify jib:dockerBuild in /projects/delivery-service/app
+  ./mvnw -ntp -Pprod verify jib:dockerBuild in /projects/jhipster-devspace/app
 ```
 
 WARNING! You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:
@@ -684,15 +684,16 @@ WARNING! You will need to push your image to a registry. If you have not done so
 You can deploy all your apps by running:
 
 ```
-  /projects/delivery-service/ocp/ocp-apply.sh
+  chmod 777 /projects/jhipster-devspace/ocp/ocp-apply.sh
+  /projects/jhipster-devspace/ocp/ocp-apply.sh
 ```
 
 OR
 
 ```
-  oc process -f /projects/delivery-service/ocp/registry/scc-config.yml | oc apply -f -
-  oc process -f /projects/delivery-service/ocp/delivery/delivery-postgresql.yml | oc apply -f -
-  oc process -f /projects/delivery-service/ocp/delivery/delivery-deployment.yml | oc apply -f -
+  oc process -f /projects/jhipster-devspace/ocp/registry/scc-config.yml | oc apply -f -
+  oc process -f /projects/jhipster-devspace/ocp/delivery/delivery-postgresql.yml | oc apply -f -
+  oc process -f /projects/jhipster-devspace/ocp/delivery/delivery-deployment.yml | oc apply -f -
 ```
 
 Use these commands to find your application's IP addresses:
