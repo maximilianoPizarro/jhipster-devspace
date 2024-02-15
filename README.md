@@ -691,6 +691,7 @@ Docker version 1.10.0 or later is not installed on your computer.
          Read http://docs.docker.com/engine/installation/#installation
 
 
+```
 Found .yo-rc.json config file...
 ? Which *type* of application would you like to deploy? Monolithic application
 ? Enter the root directory where your applications are located /projects/jhipster-devspace
@@ -703,6 +704,7 @@ The path "/projects/jhipster-devspace" does not end with a trailing "/", adding 
 ? What should we use for the base Docker repository name? image-registry.openshift-image-registry.svc:5000/maximilianopiza
 rro5-dev
 ? What command should we use for push Docker image to repository? docker push
+```
 
 Checking Docker images in applications directories...
 ```
