@@ -3,9 +3,9 @@ metadata:
   name: jhipster-devspace
   version: 2.1.0
 components:
-  - name: maven
+  - name: tools
     container:  
-      image: 'quay.io/maximilianopizarro/codeready-jhipster@sha256:cff26c55fda6d79b75570f012161a0aad771b0052b63db97d9aab26d806fa6ad'
+      image: 'quay.io/maximilianopizarro/jhipster-devspace'
       mountSources: true
       cpuLimit: '4'
       cpuRequest: '1'
@@ -13,11 +13,11 @@ components:
       memoryRequest: '4G'
       volumeMounts:
         - name: m2
-          path: /home/jboss/.m2
+          path: /home/user/.m2
         - name: config
-          path: /home/jboss/.config
+          path: /home/user/.config
         - name: npm
-          path: /home/jboss/.npm
+          path: /home/user/.npm
       endpoints:
         - exposure: public
           name: jhipster-devspace
@@ -41,7 +41,7 @@ commands:
   - id: build
     exec:
       label: "2. Package the application"    
-      component: maven             
+      component: tools             
       workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
       commandLine: "mvn clean install -DskipTest"
       group:
