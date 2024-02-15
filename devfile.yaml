@@ -28,6 +28,8 @@ components:
           name: JAVA_OPTS
         - value: $(JAVA_OPTS)
           name: MAVEN_OPTS
+        - value: /home/tooling/.sdkman/candidates/java/11.0.15-tem
+          name: JAVA_HOME          
   - name: m2
     volume:
       size: 512Mi          
@@ -40,10 +42,19 @@ components:
 commands:
   - id: build
     exec:
-      label: "2. Package the application"    
+      label: "Package the application"    
       component: tools             
       workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
       commandLine: "mvn clean install -DskipTest"
       group:
         kind: build
         isDefault: true
+  - id: run-app
+    exec:
+      label: "run-app"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}/jhipster-devspace/app
+      commandLine: "./mvnw"
+      group:
+        kind: run
+        isDefault: true        
