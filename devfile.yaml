@@ -38,15 +38,6 @@ components:
     volume:
       size: 512Mi            
 commands:
-  - id: install
-    exec:
-      label: "1. Install NPM"
-      component: maven      
-      workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
-      commandLine: "npm install"
-      group:
-        kind: build
-        isDefault: true
   - id: build
     exec:
       label: "2. Package the application"    
@@ -55,13 +46,4 @@ commands:
       commandLine: "mvn clean install -DskipTest"
       group:
         kind: build
-        isDefault: true
-  - id: run
-    exec:
-      label: "3. Run the application"    
-      component: maven                   
-      workingDir: ${PROJECTS_ROOT}/jhipster-devspace/app
-      commandLine: "java -jar target/*.jar"
-      group:
-        kind: run
         isDefault: true
