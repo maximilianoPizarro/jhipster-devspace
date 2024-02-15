@@ -15,7 +15,10 @@
 
 # JHipster OpenShift Generator
 
+```
 [jboss@workspace957b56497c3a46f6-7bdcf57dd8-ktkwn delivery-service]$ jhipster openshift
+```
+
 INFO! Using JHipster version installed globally
 ⭕ [*BETA*] Welcome to the JHipster OpenShift Generator ⭕
 Files will be generated in folder: /projects/delivery-service or in the root directory path that you select in the subsequent step
@@ -28,7 +31,6 @@ Found .yo-rc.json config file...
 ? Enter the root directory where your applications are located /projects/delivery-service
 The path "/projects/delivery-service" does not end with a trailing "/", adding it anyway.
 1 applications found at /projects/delivery-service/
-
 ? Which applications do you want to include in your configuration? app
 ? Do you want to setup monitoring for your applications ? No
 ? What should we use for the OpenShift namespace? maximilianopizarro5-dev
@@ -51,21 +53,37 @@ No change to package.json was detected. No package manager install will be execu
 WARNING! OpenShift configuration generated, but no Jib cache found
 If you forgot to generate the Docker image for this application, please run:
 To generate the missing Docker image(s), please run:
+
+```
   ./mvnw -ntp -Pprod verify jib:dockerBuild in /projects/delivery-service/app
+```
 
 WARNING! You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:
+
+```
   docker image tag delivery image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
   docker push image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
+```
 
-You can deploy all your apps by running: 
+You can deploy all your apps by running:
+
+```
   /projects/delivery-service/ocp/ocp-apply.sh
+```
+
 OR
+
+```
   oc process -f /projects/delivery-service/ocp/registry/scc-config.yml | oc apply -f -
   oc process -f /projects/delivery-service/ocp/delivery/delivery-postgresql.yml | oc apply -f -
   oc process -f /projects/delivery-service/ocp/delivery/delivery-deployment.yml | oc apply -f -
+```
 
 Use these commands to find your application's IP addresses:
+
+```
   oc get svc delivery
+```
 
 Congratulations, JHipster execution is complete!
 Sponsored with ❤️  by @oktadev.
