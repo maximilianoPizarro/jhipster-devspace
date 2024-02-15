@@ -83,7 +83,6 @@
                   file="config/liquibase/data/user.csv"
                   separator=";"
                   tableName="jhi_user">
-            <column name="id" type="numeric"/>
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
         </loadData>

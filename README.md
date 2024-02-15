@@ -34,10 +34,10 @@
 rm -r app && mkdir app
 ```
 
-1. Copy delivery-model.jdl to app directory:
+1. Copy jhipster-devspace-model.jdl to app directory:
 
 ```
-cp template-jdl/delivery-model.jdl app
+cp template-jdl/jhipster-devspace-model.jdl app
 ```
 
 <p align="left">
@@ -47,16 +47,16 @@ cp template-jdl/delivery-model.jdl app
 3. Run 'jhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started :
 ```
 cd app
-jhipster jdl delivery-model.jdl
+jhipster jdl jhipster-devspace-model.jdl
 ```
 
 ```bash
 Output:
 
 [jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 jhipster-devspace]$ cd app
-[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 app]$ jhipster jdl delivery-model.jdl
+[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 app]$ jhipster jdl jhipster-devspace-model.jdl
 INFO! Using JHipster version installed globally
-INFO! Executing import-jdl delivery-model.jdl
+INFO! Executing import-jdl jhipster-devspace-model.jdl
 INFO! The JDL is being parsed.
 warn: An Entity name 'User' was used: 'User' is an entity created by default by JHipster. All relationships toward it will be kept but any attributes and relationships from it will be disregarded.
 INFO! Found entities: Producto, ProductoCategoria, Cliente, Carrito, ProductoOrden.
@@ -612,7 +612,7 @@ Congratulations, JHipster execution is complete!
 Sponsored with ❤️  by @oktadev.
 ```
 
-4. Run Development Mode the JHipster Application
+4. Run Development Mode the JHipster Application. 
 
 ```
 ./mvnw
@@ -622,9 +622,46 @@ Sponsored with ❤️  by @oktadev.
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-delivery-devspace-run.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
+Default Admin credentials: admin / admin
+
+
+## An example of JDL modification to change the style of Bootswatch Theme (Optional)
+
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-delivery.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
+
+Try to changing the value from "quartz" to "vapor" in "clientTheme" from template-jdl/jhipster-despace-model.jdl and run steps 1 to 4 for regenerate proyect. 
+
+```
+template-jdl/jhipster-despace-model
+application {
+  config {
+  	applicationType monolith
+    baseName delivery
+    packageName com.delivery.app
+    authenticationType jwt
+    prodDatabaseType mariadb
+    databaseType sql
+    devDatabaseType h2Memory
+    buildTool maven
+    clientFramework vue
+    clientTheme vapor           //<---This
+    clientThemeVariant dark
+    enableTranslation true
+    nativeLanguage es
+    languages [en, nl]
+  }
+  entities *
+}
+```
+
+The main theme should look like this:
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-vapor-theme.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
 
 
 ## JHipster OpenShift Generator (Optional)

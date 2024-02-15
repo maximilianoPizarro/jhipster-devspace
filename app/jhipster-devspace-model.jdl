@@ -4,12 +4,12 @@ application {
     baseName delivery
     packageName com.delivery.app
     authenticationType jwt
-    prodDatabaseType postgresql
+    prodDatabaseType mariadb
     databaseType sql
     devDatabaseType h2Memory
     buildTool maven
     clientFramework vue
-    clientTheme quartz
+    clientTheme vapor
     clientThemeVariant dark
     enableTranslation true
     nativeLanguage es

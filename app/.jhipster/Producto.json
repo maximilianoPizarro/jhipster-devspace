@@ -48,5 +48,5 @@
   "readOnly": false,
   "embedded": false,
   "applications": ["delivery"],
-  "changelogDate": "20240215133932"
+  "changelogDate": "20240215145647"
 }
