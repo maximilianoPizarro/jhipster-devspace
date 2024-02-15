@@ -25,7 +25,7 @@
     "applicationType": "monolith",
     "packageName": "com.delivery.app",
     "packageFolder": "com/delivery/app",
-    "clientTheme": "vapor",
+    "clientTheme": "solar",
     "clientThemeVariant": "dark",
     "nativeLanguage": "es",
     "jhipsterVersion": "7.1.0",
@@ -41,9 +41,9 @@
     "blueprints": [],
     "otherModules": [],
     "pages": [],
-    "creationTimestamp": 1708008947241,
-    "jwtSecretKey": "Nzk5OGNjZTllMDFkNzhkNGJhMDk2N2E1OWE5NTEwZTAzYTUxNWI3MTRlY2M4NDIwZTgyMzlmOGIyNjAxNDQ3ZjUxNmE2NmNlMzk2YjM0YWJhMzQ0MjJmZGRjZDM4YjY3OTNmNzE1ZDhlNjA0ZDcyNWMzZTE5NjA1OTBmZDYwZGQ=",
+    "creationTimestamp": 1708012323311,
+    "jwtSecretKey": "YTMyODViYzdiZTVkOWU0N2JjMGE3NmIxZjZmODI4ZmRmY2VkMDFhZTE0NDI5MjI3Y2Q2NTY2YmI4NmJmZjRkODc2NzZhNTRmMWMwNWQ3ZTdmNDM0ZGMwNTZhYjA0MmZkZDU0OTg4NmIwOWRjNGM2NjAwZjdjNzBlZjIxYmJkNjM=",
     "devServerPort": 9060,
-    "lastLiquibaseTimestamp": 1708009247000
+    "lastLiquibaseTimestamp": 1708012623000
   }
 }

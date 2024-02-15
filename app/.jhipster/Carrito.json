@@ -53,5 +53,5 @@
   "readOnly": false,
   "embedded": false,
   "applications": ["delivery"],
-  "changelogDate": "20240215145947"
+  "changelogDate": "20240215155603"
 }

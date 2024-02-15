@@ -624,6 +624,20 @@ Sponsored with ❤️  by @oktadev.
 
 Default Admin credentials: admin / admin
 
+## H2 Console Dev Mode 
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-state.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/h2-console.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/h2-console-query.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
 
 ## An example of JDL modification to change the style of Bootswatch Theme (Optional)
 

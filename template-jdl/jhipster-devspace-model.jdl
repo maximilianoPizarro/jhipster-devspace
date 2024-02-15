@@ -9,7 +9,7 @@ application {
     devDatabaseType h2Memory
     buildTool maven
     clientFramework vue
-    clientTheme vapor
+    clientTheme solar
     clientThemeVariant dark
     enableTranslation true
     nativeLanguage es
