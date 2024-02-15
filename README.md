@@ -1,4 +1,4 @@
-# JHipster v7.1.0 Monolithic application On DevSpaces
+# JHipster v7.1.0 Monolithic application On Red Hat OpenShift Dev Spaces
 
 <p align="left">
 <img src="https://img.shields.io/badge/redhat-CC0000?style=for-the-badge&logo=redhat&logoColor=white" alt="Redhat">
