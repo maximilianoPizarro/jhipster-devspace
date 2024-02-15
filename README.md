@@ -13,7 +13,7 @@
 </p>  
 
 
-# JHipster OpenShift Generator
+## JHipster OpenShift Generator (Optional)
 
 ```
 [jboss@workspace957b56497c3a46f6-7bdcf57dd8-ktkwn delivery-service]$ jhipster openshift

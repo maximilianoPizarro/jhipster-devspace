@@ -1,0 +1,89 @@
+application {
+  config {
+  	applicationType monolith
+    baseName delivery
+    packageName com.delivery.app
+    authenticationType jwt
+    prodDatabaseType postgresql
+    databaseType sql
+    devDatabaseType h2Memory
+    buildTool maven
+    clientFramework vue
+    clientTheme quartz
+    clientThemeVariant dark
+    enableTranslation true
+    nativeLanguage es
+    languages [en, nl]
+  }
+  entities *
+}
+
+
+/** Producto sold by the Online store */
+entity Producto {
+    nombre String required
+    description String
+    precio BigDecimal required min(0)
+    medida Medida required
+    image ImageBlob
+}
+
+enum Medida {
+    S, M, L, XL, XXL
+}
+
+entity ProductoCategoria {
+    nombre String required
+    description String
+}
+
+entity Cliente {
+    genero Genero required
+    telefono String required
+    direccion1 String required
+    direccion2 String
+    ciudad String required
+    pais String required
+}
+
+enum Genero {
+    MASCULINO, FEMENINO, OTRO
+}
+
+entity Carrito {
+    fecha Instant required
+    status OrdenStatus required
+    precioTotal BigDecimal required min(0)
+    metodoDePago MetodoDePago required
+    referencia String
+}
+
+enum OrdenStatus {
+    COMPLETO, PAGADO, PENDIENTE, CANCELADO, RECHAZADO
+}
+
+enum MetodoDePago {
+    EFECTIVO(efectivo), CUPON(cupon)
+}
+
+entity ProductoOrden {
+    cantidad Integer required min(0)
+    precioTotal BigDecimal required min(0)
+}
+
+relationship OneToOne {
+    Cliente{user(login) required} to User
+}
+
+relationship ManyToOne {
+    ProductoOrden{producto(nombre) required} to Producto
+}
+
+relationship OneToMany {
+    Cliente{cart} to Carrito{cliente required}, 
+    Carrito{orden} to ProductoOrden{cart required}, 
+    ProductoCategoria{producto} to Producto{productoCategoria(nombre) required}
+}
+
+service * with serviceClass
+paginate Producto, Cliente, ProductoCategoria with pagination
