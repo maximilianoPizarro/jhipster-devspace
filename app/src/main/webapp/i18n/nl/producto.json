@@ -1,0 +1,29 @@
+{
+  "deliveryApp": {
+    "producto": {
+      "home": {
+        "title": "Productos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Producto",
+        "createOrEditLabel": "Maak of wijzig een Producto",
+        "notFound": "No Productos found"
+      },
+      "created": "A new Producto is created with identifier {{ param }}",
+      "updated": "A Producto is updated with identifier {{ param }}",
+      "deleted": "A Producto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Producto {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Producto"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "description": "Description",
+      "precio": "Precio",
+      "medida": "Medida",
+      "image": "Image",
+      "productoCategoria": "Producto Categoria"
+    }
+  }
+}

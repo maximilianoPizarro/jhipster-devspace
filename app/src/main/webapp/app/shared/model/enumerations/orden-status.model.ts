@@ -1,0 +1,11 @@
+export enum OrdenStatus {
+  COMPLETO = 'COMPLETO',
+
+  PAGADO = 'PAGADO',
+
+  PENDIENTE = 'PENDIENTE',
+
+  CANCELADO = 'CANCELADO',
+
+  RECHAZADO = 'RECHAZADO',
+}

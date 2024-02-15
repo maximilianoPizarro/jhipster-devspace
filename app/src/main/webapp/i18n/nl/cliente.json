@@ -1,0 +1,31 @@
+{
+  "deliveryApp": {
+    "cliente": {
+      "home": {
+        "title": "Clientes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Cliente",
+        "createOrEditLabel": "Maak of wijzig een Cliente",
+        "notFound": "No Clientes found"
+      },
+      "created": "A new Cliente is created with identifier {{ param }}",
+      "updated": "A Cliente is updated with identifier {{ param }}",
+      "deleted": "A Cliente is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Cliente {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Cliente"
+      },
+      "id": "ID",
+      "genero": "Genero",
+      "telefono": "Telefono",
+      "direccion1": "Direccion 1",
+      "direccion2": "Direccion 2",
+      "ciudad": "Ciudad",
+      "pais": "Pais",
+      "user": "User",
+      "cart": "Cart"
+    }
+  }
+}

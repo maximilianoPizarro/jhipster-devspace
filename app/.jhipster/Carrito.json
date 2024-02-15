@@ -1,0 +1,57 @@
+{
+  "name": "Carrito",
+  "fields": [
+    {
+      "fieldName": "fecha",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "OrdenStatus",
+      "fieldValues": "COMPLETO,PAGADO,PENDIENTE,CANCELADO,RECHAZADO",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "precioTotal",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "metodoDePago",
+      "fieldType": "MetodoDePago",
+      "fieldValues": "EFECTIVO (efectivo),CUPON (cupon)",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "referencia",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "productoOrden",
+      "otherEntityRelationshipName": "cart",
+      "relationshipName": "orden"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "cart",
+      "relationshipValidateRules": "required",
+      "relationshipName": "cliente"
+    }
+  ],
+  "entityTableName": "carrito",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["delivery"],
+  "changelogDate": "20240215134232"
+}

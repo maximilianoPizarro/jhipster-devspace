@@ -1,0 +1,12 @@
+{
+  "deliveryApp": {
+    "OrdenStatus": {
+      "null": "",
+      "COMPLETO": "COMPLETO",
+      "PAGADO": "PAGADO",
+      "PENDIENTE": "PENDIENTE",
+      "CANCELADO": "CANCELADO",
+      "RECHAZADO": "RECHAZADO"
+    }
+  }
+}

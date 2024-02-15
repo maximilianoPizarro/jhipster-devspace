@@ -1,0 +1,30 @@
+{
+  "deliveryApp": {
+    "carrito": {
+      "home": {
+        "title": "Carritos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Carrito",
+        "createOrEditLabel": "Maak of wijzig een Carrito",
+        "notFound": "No Carritos found"
+      },
+      "created": "A new Carrito is created with identifier {{ param }}",
+      "updated": "A Carrito is updated with identifier {{ param }}",
+      "deleted": "A Carrito is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Carrito {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Carrito"
+      },
+      "id": "ID",
+      "fecha": "Fecha",
+      "status": "Status",
+      "precioTotal": "Precio Total",
+      "metodoDePago": "Metodo De Pago",
+      "referencia": "Referencia",
+      "orden": "Orden",
+      "cliente": "Cliente"
+    }
+  }
+}

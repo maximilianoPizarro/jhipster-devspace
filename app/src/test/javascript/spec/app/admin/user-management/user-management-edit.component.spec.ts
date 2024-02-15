@@ -13,6 +13,7 @@ const localVue = createLocalVue();
 localVue.use(VueRouter);
 
 config.initVueApp(localVue);
+const i18n = config.initI18N(localVue);
 const store = config.initVueXStore(localVue);
 localVue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -31,6 +32,7 @@ describe('UserManagementEdit Component', () => {
     wrapper = shallowMount<UserManagementEditClass>(UserManagementEdit, {
       store,
       router,
+      i18n,
       localVue,
       provide: {
         userService: () => new UserManagementService(),
@@ -102,7 +104,7 @@ describe('UserManagementEdit Component', () => {
       await userManagementEdit.$nextTick();
 
       // THEN
-      expect(axiosStub.post.calledWith('api/admin/users', { authorities: [], langKey: 'en' })).toBeTruthy();
+      expect(axiosStub.post.calledWith('api/admin/users', { authorities: [] })).toBeTruthy();
       expect(userManagementEdit.isSaving).toEqual(false);
     });
   });

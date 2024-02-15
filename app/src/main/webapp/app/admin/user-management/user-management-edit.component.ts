@@ -93,7 +93,6 @@ export default class JhiUserManagementEdit extends Vue {
           });
         });
     } else {
-      this.userAccount.langKey = 'en';
       this.userManagementService()
         .create(this.userAccount)
         .then(res => {
@@ -115,6 +114,8 @@ export default class JhiUserManagementEdit extends Vue {
   }
 
   private getMessageFromHeader(res: any): any {
-    return res.headers['x-deliveryapp-alert'];
+    return this.$t(res.headers['x-deliveryapp-alert'], {
+      param: decodeURIComponent(res.headers['x-deliveryapp-params'].replace(/\+/g, ' ')),
+    });
   }
 }

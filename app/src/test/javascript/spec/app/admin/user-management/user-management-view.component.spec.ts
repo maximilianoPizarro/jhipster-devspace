@@ -12,6 +12,7 @@ import { Authority } from '@/shared/security/authority';
 const localVue = createLocalVue();
 
 config.initVueApp(localVue);
+const i18n = config.initI18N(localVue);
 const store = config.initVueXStore(localVue);
 localVue.component('font-awesome-icon', FontAwesomeIcon);
 localVue.component('b-badge', {});
@@ -28,6 +29,7 @@ describe('UserManagementView Component', () => {
   beforeEach(() => {
     wrapper = shallowMount<UserManagementViewClass>(UserManagementView, {
       store,
+      i18n,
       localVue,
       provide: { userService: () => new UserManagementService() },
     });

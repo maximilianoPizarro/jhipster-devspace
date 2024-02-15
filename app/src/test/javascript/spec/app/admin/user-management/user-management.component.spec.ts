@@ -11,6 +11,7 @@ import UserManagementService from '@/admin/user-management/user-management.servi
 const localVue = createLocalVue();
 
 config.initVueApp(localVue);
+const i18n = config.initI18N(localVue);
 const store = config.initVueXStore(localVue);
 localVue.component('font-awesome-icon', FontAwesomeIcon);
 localVue.component('router-link', {});
@@ -41,6 +42,7 @@ describe('UserManagement Component', () => {
     store.commit('authenticated', account);
     wrapper = shallowMount<UserManagementClass>(UserManagement, {
       store,
+      i18n,
       localVue,
       stubs: {
         bPagination: true,
