@@ -70,7 +70,7 @@ public class LoggingAspect {
         if (env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT))) {
             logger(joinPoint)
                 .error(
-                    "Exception in {}() with cause = \'{}\' and exception = \'{}\'",
+                    "Exception in {}() with cause = '{}' and exception = '{}'",
                     joinPoint.getSignature().getName(),
                     e.getCause() != null ? e.getCause() : "NULL",
                     e.getMessage(),
@@ -81,7 +81,7 @@ public class LoggingAspect {
                 .error(
                     "Exception in {}() with cause = {}",
                     joinPoint.getSignature().getName(),
-                    e.getCause() != null ? e.getCause() : "NULL"
+                    e.getCause() != null ? String.valueOf(e.getCause()) : "NULL"
                 );
         }
     }

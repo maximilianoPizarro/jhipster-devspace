@@ -6,11 +6,11 @@
       "createLabel": "Creëer een nieuwe gebruiker",
       "createOrEditLabel": "Creëer of editeer een gebruiker"
     },
-    "created": "Een nieuwe gebruiker is aangemaakt met id {{ param }}",
-    "updated": "Een gebruiker is geüpdatet met id {{ param }}",
-    "deleted": "Een gebruiker is verwijderd met id {{ param }}",
+    "created": "Een nieuwe gebruiker is aangemaakt met id { param }",
+    "updated": "Een gebruiker is geüpdatet met id { param }",
+    "deleted": "Een gebruiker is verwijderd met id { param }",
     "delete": {
-      "question": "Bent u zeker dat u gebruiker {{ login }} wil verwijderen?"
+      "question": "Bent u zeker dat u gebruiker { login } wil verwijderen?"
     },
     "detail": {
       "title": "Gebruiker"

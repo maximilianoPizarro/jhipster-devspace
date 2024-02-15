@@ -7,12 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entiteiten",
-        "producto": "Producto",
-        "productoCategoria": "Producto Categoria",
-        "cliente": "Cliente",
-        "carrito": "Carrito",
-        "productoOrden": "Producto Orden",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "region": "Region",
+        "country": "Country",
+        "location": "Location",
+        "department": "Department",
+        "task": "Task",
+        "employee": "Employee",
+        "job": "Job",
+        "jobHistory": "Job History"
       },
       "account": {
         "main": "Gebruiker",
@@ -90,7 +93,7 @@
     "ribbon": {
       "dev": "Ontwikkeling"
     },
-    "item-count": "Resultaat {{first}} - {{second}} van {{total}} items."
+    "item-count": "Resultaat { first } - { second } van { total } items."
   },
   "entity": {
     "action": {
@@ -100,7 +103,8 @@
       "edit": "Wijzigen",
       "open": "Open",
       "save": "Opslaan",
-      "view": "View"
+      "view": "View",
+      "show": "Show { otherEntity }"
     },
     "detail": {
       "field": "Veld",
@@ -111,30 +115,35 @@
     },
     "validation": {
       "required": "Dit veld is vereist.",
-      "minlength": "Dit veld moet minstens {{min}} tekens lang zijn.",
-      "maxlength": "Dit veld kan niet langer zijn dan {{max}} tekens.",
-      "min": "Dit veld moet minstens {{min}} zijn.",
-      "max": "Dit veld kan niet langer zijn dan {{max}}.",
-      "pattern": "Dit veld zou het patroon moeten volgen {{pattern}}.",
+      "minlength": "Dit veld moet minstens { min } tekens lang zijn.",
+      "maxlength": "Dit veld kan niet langer zijn dan { max } tekens.",
+      "min": "Dit veld moet minstens { min } zijn.",
+      "max": "Dit veld kan niet langer zijn dan { max }.",
+      "pattern": "Dit veld zou het patroon moeten volgen { pattern }.",
       "number": "Dit veld zou een getal moeten zijn.",
       "datetimelocal": "Dit veld zou een datum en tijd moeten zijn."
+    },
+    "filters": {
+      "set": "Following filters are set",
+      "clear": "Clear filter",
+      "clearAll": "Clear all filters"
     }
   },
   "error": {
     "internalServerError": "Internal server error",
     "server.not.reachable": "Server not reachable",
     "url.not.found": "Not found",
-    "NotNull": "Field {{fieldName}} cannot be empty!",
-    "Size": "Field {{fieldName}} does not meet min/max size requirements!",
+    "NotNull": "Field { fieldName } cannot be empty!",
+    "Size": "Field { fieldName } does not meet min/max size requirements!",
     "userexists": "Login name already used!",
     "emailexists": "Email is already in use!",
-    "idexists": "A new {{entityName}} cannot already have an ID",
+    "idexists": "A new { entityName } cannot already have an ID",
     "idnull": "Invalid ID",
     "idinvalid": "Invalid Id",
     "idnotfound": "ID cannot be found",
     "file": {
       "could.not.extract": "Could not extract file",
-      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+      "not.image": "File was expected to be an image but was found to be \"{ fileType }\""
     }
   },
   "footer": "Dit is uw voettekst"

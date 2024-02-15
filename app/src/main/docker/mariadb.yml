@@ -1,15 +1,22 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
-version: '3.8'
+name: delivery
 services:
-  delivery-mariadb:
-    image: mariadb:10.6.1
+  mariadb:
+    image: mariadb:11.2.2
+    volumes:
+      - ./config/mariadb:/etc/mariadb/conf.d
     # volumes:
-    #   - ~/volumes/jhipster/delivery/mysql/:/var/lib/mysql/
+    #   - ~/volumes/jhipster/delivery/mariadb/:/var/lib/mariadb/
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=delivery
+      - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=yes
+      - MARIADB_DATABASE=delivery
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
       - 127.0.0.1:3306:3306
-    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+    command: mariadbd --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+    healthcheck:
+      test: ['CMD', '/usr/local/bin/healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 5s
+      timeout: 5s
+      retries: 10

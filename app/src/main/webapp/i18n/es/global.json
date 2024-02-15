@@ -7,12 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
-        "producto": "Producto",
-        "productoCategoria": "Producto Categoria",
-        "cliente": "Cliente",
-        "carrito": "Carrito",
-        "productoOrden": "Producto Orden",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "region": "Region",
+        "country": "Country",
+        "location": "Location",
+        "department": "Department",
+        "task": "Task",
+        "employee": "Employee",
+        "job": "Job",
+        "jobHistory": "Job History"
       },
       "account": {
         "main": "Cuenta",
@@ -90,7 +93,7 @@
     "ribbon": {
       "dev": "Development"
     },
-    "item-count": "Mostrando {{first}} - {{second}} de {{total}} elementos."
+    "item-count": "Mostrando { first } - { second } de { total } elementos."
   },
   "entity": {
     "action": {
@@ -102,7 +105,8 @@
       "edit": "Editar",
       "open": "Abrir",
       "save": "Guardar",
-      "view": "Vista"
+      "view": "Vista",
+      "show": "Show { otherEntity }"
     },
     "detail": {
       "field": "Campo",
@@ -113,32 +117,37 @@
     },
     "validation": {
       "required": "Este campo es obligatorio.",
-      "minlength": "Este campo requiere al menos {{min}} caracteres.",
-      "maxlength": "Este campo no puede superar más de {{max}} caracteres.",
-      "min": "Este campo debe ser mayor que {{min}}.",
-      "max": "Este campo no puede ser mayor que {{max}}.",
-      "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",
-      "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
-      "pattern": "Este campo debe seguir el patrón {{pattern}}.",
+      "minlength": "Este campo requiere al menos { min } caracteres.",
+      "maxlength": "Este campo no puede superar más de { max } caracteres.",
+      "min": "Este campo debe ser mayor que { min }.",
+      "max": "Este campo no puede ser mayor que { max }.",
+      "minbytes": "Este campo debe tener como mínimo { min } bytes.",
+      "maxbytes": "Este campo no puede tener más de { max } bytes.",
+      "pattern": "Este campo debe seguir el patrón { pattern }.",
       "number": "Este campo debe ser un número.",
       "datetimelocal": "Este campo debe ser una fecha y hora."
+    },
+    "filters": {
+      "set": "Following filters are set",
+      "clear": "Clear filter",
+      "clearAll": "Clear all filters"
     }
   },
   "error": {
     "internalServerError": "Error interno en el servidor",
     "server.not.reachable": "Servidor no accesible",
     "url.not.found": "No existe",
-    "NotNull": "¡El campo {{fieldName}} no puede estar vacío!",
-    "Size": "¡El campo {{fieldName}} no cumple con los requisitos de tamaño mínimo/máximo!",
+    "NotNull": "¡El campo { fieldName } no puede estar vacío!",
+    "Size": "¡El campo { fieldName } no cumple con los requisitos de tamaño mínimo/máximo!",
     "userexists": "¡El nombre de usuario ya existe!",
     "emailexists": "¡La cuenta de correo ya está en uso!",
-    "idexists": "Un/a nuevo/a {{entityName}} no puede tener ID",
+    "idexists": "Un/a nuevo/a { entityName } no puede tener ID",
     "idnull": "ID inválido",
     "idinvalid": "ID inválido",
     "idnotfound": "ID no encontrado",
     "file": {
       "could.not.extract": "No se pudo extraer el fichero",
-      "not.image": "Se esperaba que el fichero fuera una imagen pero se encontro \"{{ fileType }}\""
+      "not.image": "Se esperaba que el fichero fuera una imagen pero se encontro \"{ fileType }\""
     }
   },
   "footer": "Pie de página"

@@ -1,4 +1,4 @@
-# JHipster v7.1.0 Monolithic application On Red Hat OpenShift Dev Spaces
+# JHipster v8.1.0 Monolithic application On Red Hat OpenShift Dev Spaces
 
 <p align="left">
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="java">
@@ -32,11 +32,13 @@
 
 1. Open terminal and run:
 
-[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 jhipster-devspace]$ rm -r app && mkdir app
+jhipster-devspace (master) $ rm -r app && mkdir app
 
 ```
+JAVA_HOME=$JAVA_HOME_17
 rm -r app && mkdir app
 ```
+
 
 1. Copy jhipster-devspace-model.jdl to app directory:
 
@@ -49,6 +51,8 @@ cp template-jdl/jhipster-devspace-model.jdl app
 </p>
 
 3. Run 'jhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started :
+app (master) $
+
 ```
 cd app
 jhipster jdl jhipster-devspace-model.jdl
@@ -77,7 +81,7 @@ INFO! Generating 1 application.
 
                             https://www.jhipster.tech
 
-Welcome to JHipster v7.1.0
+Welcome to JHipster v8.1.0
 Application files will be generated in folder: /projects/jhipster-devspace/app
  _______________________________________________________________________________________________________________
 
@@ -728,7 +732,7 @@ If you forgot to generate the Docker image for this application, please run:
 To generate the missing Docker image(s), please run:
 
 ```
-  ./mvnw -ntp -Pprod verify jib:dockerBuild in /projects/jhipster-devspace/app
+  ./mvnw -ntp -Pprod jib:dockerBuild
 ```
 
 WARNING! You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:

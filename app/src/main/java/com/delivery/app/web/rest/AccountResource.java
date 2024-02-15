@@ -7,13 +7,11 @@ import com.delivery.app.service.MailService;
 import com.delivery.app.service.UserService;
 import com.delivery.app.service.dto.AdminUserDTO;
 import com.delivery.app.service.dto.PasswordChangeDTO;
-import com.delivery.app.service.dto.UserDTO;
 import com.delivery.app.web.rest.errors.*;
 import com.delivery.app.web.rest.vm.KeyAndPasswordVM;
 import com.delivery.app.web.rest.vm.ManagedUserVM;
+import jakarta.validation.Valid;
 import java.util.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,18 +79,6 @@ public class AccountResource {
     }
 
     /**
-     * {@code GET  /authenticate} : check if the user is authenticated, and return its login.
-     *
-     * @param request the HTTP request.
-     * @return the login if the user is authenticated.
-     */
-    @GetMapping("/authenticate")
-    public String isAuthenticated(HttpServletRequest request) {
-        log.debug("REST request to check if the current user is authenticated");
-        return request.getRemoteUser();
-    }
-
-    /**
      * {@code GET  /account} : get the current user.
      *
      * @return the current user.
@@ -119,7 +105,7 @@ public class AccountResource {
             .getCurrentUserLogin()
             .orElseThrow(() -> new AccountResourceException("Current user login not found"));
         Optional<User> existingUser = userRepository.findOneByEmailIgnoreCase(userDTO.getEmail());
-        if (existingUser.isPresent() && (!existingUser.get().getLogin().equalsIgnoreCase(userLogin))) {
+        if (existingUser.isPresent() && (!existingUser.orElseThrow().getLogin().equalsIgnoreCase(userLogin))) {
             throw new EmailAlreadyUsedException();
         }
         Optional<User> user = userRepository.findOneByLogin(userLogin);
@@ -158,7 +144,7 @@ public class AccountResource {
     public void requestPasswordReset(@RequestBody String mail) {
         Optional<User> user = userService.requestPasswordReset(mail);
         if (user.isPresent()) {
-            mailService.sendPasswordResetMail(user.get());
+            mailService.sendPasswordResetMail(user.orElseThrow());
         } else {
             // Pretend the request has been successful to prevent checking which emails really exist
             // but log that an invalid attempt has been made

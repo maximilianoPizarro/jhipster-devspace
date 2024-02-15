@@ -6,11 +6,11 @@
       "createLabel": "Crear un nuevo usuario",
       "createOrEditLabel": "Crear o editar un usuario"
     },
-    "created": "Se creó un nuevo usuario con identificador {{ param }}",
-    "updated": "Se actualizó el usuario con identificador {{ param }}",
-    "deleted": "Se borró el usuario con identificador {{ param }}",
+    "created": "Se creó un nuevo usuario con identificador { param }",
+    "updated": "Se actualizó el usuario con identificador { param }",
+    "deleted": "Se borró el usuario con identificador { param }",
     "delete": {
-      "question": "¿Seguro que quieres eliminar el usuario {{ login }}?"
+      "question": "¿Seguro que quieres eliminar el usuario { login }?"
     },
     "detail": {
       "title": "Usuario"

@@ -1,23 +1,17 @@
-import { Module } from 'vuex';
+import { defineStore } from 'pinia';
 
-export const translationStore: Module<any, any> = {
-  state: {
-    currentLanguage: localStorage.getItem('currentLanguage') || 'es',
-    languages: {
-      nl: { name: 'Nederlands' },
-      en: { name: 'English' },
-      es: { name: 'Español' },
-      // jhipster-needle-i18n-language-key-pipe - JHipster will add/remove languages in this object
-    },
-  },
-  getters: {
-    currentLanguage: state => state.currentLanguage,
-    languages: state => state.languages,
-  },
-  mutations: {
-    currentLanguage(state, newLanguage) {
-      state.currentLanguage = newLanguage;
+interface TranslationState {
+  currentLanguage: string;
+}
+
+export const useTranslationStore = defineStore('translationStore', {
+  state: (): TranslationState => ({
+    currentLanguage: undefined,
+  }),
+  actions: {
+    setCurrentLanguage(newLanguage) {
+      this.currentLanguage = newLanguage;
       localStorage.setItem('currentLanguage', newLanguage);
     },
   },
-};
+});

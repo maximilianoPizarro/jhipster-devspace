@@ -1,4 +1,4 @@
 /**
- * Service layer beans.
+ * Service layer.
  */
 package com.delivery.app.service;

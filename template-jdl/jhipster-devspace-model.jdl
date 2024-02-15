@@ -19,71 +19,115 @@ application {
 }
 
 
-/** Producto sold by the Online store */
-entity Producto {
-    nombre String required
-    description String
-    precio BigDecimal required min(0)
-    medida Medida required
-    image ImageBlob
+
+entity Region {
+	regionName String
 }
 
-enum Medida {
-    S, M, L, XL, XXL
+entity Country {
+	countryName String
 }
 
-entity ProductoCategoria {
-    nombre String required
-    description String
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+	streetAddress String
+	postalCode String
+	city String
+	stateProvince String
 }
 
-entity Cliente {
-    genero Genero required
-    telefono String required
-    direccion1 String required
-    direccion2 String
-    ciudad String required
-    pais String required
+entity Department {
+	departmentName String required
 }
 
-enum Genero {
-    MASCULINO, FEMENINO, OTRO
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Task {
+	title String
+	description String
 }
 
-entity Carrito {
-    fecha Instant required
-    status OrdenStatus required
-    precioTotal BigDecimal required min(0)
-    metodoDePago MetodoDePago required
-    referencia String
+/**
+ * The Employee entity.
+ */
+entity Employee {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String
+	lastName String
+	email String
+	phoneNumber String
+	hireDate Instant
+	salary Long
+	commissionPct Long
 }
 
-enum OrdenStatus {
-    COMPLETO, PAGADO, PENDIENTE, CANCELADO, RECHAZADO
+entity Job {
+	jobTitle String
+	minSalary Long
+	maxSalary Long
 }
 
-enum MetodoDePago {
-    EFECTIVO(efectivo), CUPON(cupon)
+entity JobHistory {
+	startDate Instant
+	endDate Instant
+	language Language
 }
 
-entity ProductoOrden {
-    cantidad Integer required min(0)
-    precioTotal BigDecimal required min(0)
+enum Language {
+    FRENCH, ENGLISH, SPANISH
 }
 
 relationship OneToOne {
-    Cliente{user(login) required} to User
+	Country{region} to Region
+}
+
+relationship OneToOne {
+	Location{country} to Country
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+relationship ManyToMany {
+	Job{task(title)} to Task{job}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Employee to Job{employee}
+	/**
+	* A relationship
+	*/
+	Department to
+	/**
+	* Another side of the same relationship
+	*/
+	Employee{department}
 }
 
 relationship ManyToOne {
-    ProductoOrden{producto(nombre) required} to Producto
+	Employee{manager} to Employee
 }
 
-relationship OneToMany {
-    Cliente{cart} to Carrito{cliente required}, 
-    Carrito{orden} to ProductoOrden{cart required}, 
-    ProductoCategoria{producto} to Producto{productoCategoria(nombre) required}
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	JobHistory{job} to Job
+	JobHistory{department} to Department
+	JobHistory{employee} to Employee
 }
 
-service * with serviceClass
-paginate Producto, Cliente, ProductoCategoria with pagination
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job

@@ -4,10 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import com.delivery.app.IntegrationTest;
-import com.delivery.app.config.Constants;
 import com.delivery.app.domain.User;
 import com.delivery.app.repository.UserRepository;
-import com.delivery.app.service.dto.AdminUserDTO;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -20,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.auditing.AuditingHandler;
 import org.springframework.data.auditing.DateTimeProvider;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 import tech.jhipster.security.RandomUtil;
 
@@ -62,7 +58,7 @@ class UserServiceIT {
     public void init() {
         user = new User();
         user.setLogin(DEFAULT_LOGIN);
-        user.setPassword(RandomStringUtils.random(60));
+        user.setPassword(RandomStringUtils.randomAlphanumeric(60));
         user.setActivated(true);
         user.setEmail(DEFAULT_EMAIL);
         user.setFirstName(DEFAULT_FIRSTNAME);

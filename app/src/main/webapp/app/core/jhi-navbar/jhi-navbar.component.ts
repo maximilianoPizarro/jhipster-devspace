@@ -1,69 +1,84 @@
-import { Component, Inject, Vue } from 'vue-property-decorator';
-import { VERSION } from '@/constants';
-import LoginService from '@/account/login.service';
-import AccountService from '@/account/account.service';
-import TranslationService from '@/locale/translation.service';
+import { computed, defineComponent, inject, ref, type Ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
+import type LoginService from '@/account/login.service';
+import type AccountService from '@/account/account.service';
+import languages from '@/shared/config/languages';
+import EntitiesMenu from '@/entities/entities-menu.vue';
 
-@Component
-export default class JhiNavbar extends Vue {
-  @Inject('loginService')
-  private loginService: () => LoginService;
-  @Inject('translationService') private translationService: () => TranslationService;
+import { useStore } from '@/store';
 
-  @Inject('accountService') private accountService: () => AccountService;
-  public version = VERSION ? 'v' + VERSION : '';
-  private currentLanguage = this.$store.getters.currentLanguage;
-  private languages: any = this.$store.getters.languages;
-  private hasAnyAuthorityValue = false;
+export default defineComponent({
+  compatConfig: { MODE: 3 },
+  name: 'JhiNavbar',
+  components: {
+    'entities-menu': EntitiesMenu,
+  },
+  setup() {
+    const loginService = inject<LoginService>('loginService');
+    const accountService = inject<AccountService>('accountService');
+    const currentLanguage = inject('currentLanguage', () => computed(() => navigator.language ?? 'es'), true);
+    const changeLanguage = inject<(string) => Promise<void>>('changeLanguage');
 
-  created() {
-    this.translationService().refreshTranslation(this.currentLanguage);
-  }
+    const isActiveLanguage = (key: string) => {
+      return key === currentLanguage.value;
+    };
 
-  public subIsActive(input) {
-    const paths = Array.isArray(input) ? input : [input];
-    return paths.some(path => {
-      return this.$route.path.indexOf(path) === 0; // current path starts with this path string
-    });
-  }
+    const router = useRouter();
+    const store = useStore();
 
-  public changeLanguage(newLanguage: string): void {
-    this.translationService().refreshTranslation(newLanguage);
-  }
+    const version = 'v' + APP_VERSION;
+    const hasAnyAuthorityValues: Ref<any> = ref({});
 
-  public isActiveLanguage(key: string): boolean {
-    return key === this.$store.getters.currentLanguage;
-  }
+    const openAPIEnabled = computed(() => store.activeProfiles.indexOf('api-docs') > -1);
+    const inProduction = computed(() => store.activeProfiles.indexOf('prod') > -1);
+    const authenticated = computed(() => store.authenticated);
 
-  public logout(): void {
-    localStorage.removeItem('jhi-authenticationToken');
-    sessionStorage.removeItem('jhi-authenticationToken');
-    this.$store.commit('logout');
-    this.$router.push('/', () => {});
-  }
+    const openLogin = () => {
+      loginService.openLogin();
+    };
 
-  public openLogin(): void {
-    this.loginService().openLogin((<any>this).$root);
-  }
-
-  public get authenticated(): boolean {
-    return this.$store.getters.authenticated;
-  }
-
-  public hasAnyAuthority(authorities: any): boolean {
-    this.accountService()
-      .hasAnyAuthorityAndCheckAuth(authorities)
-      .then(value => {
-        this.hasAnyAuthorityValue = value;
+    const subIsActive = (input: string | string[]) => {
+      const paths = Array.isArray(input) ? input : [input];
+      return paths.some(path => {
+        return router.currentRoute.value.path.indexOf(path) === 0; // current path starts with this path string
       });
-    return this.hasAnyAuthorityValue;
-  }
+    };
 
-  public get openAPIEnabled(): boolean {
-    return this.$store.getters.activeProfiles.indexOf('api-docs') > -1;
-  }
+    const logout = async () => {
+      localStorage.removeItem('jhi-authenticationToken');
+      sessionStorage.removeItem('jhi-authenticationToken');
+      store.logout();
+      if (router.currentRoute.value.path !== '/') {
+        router.push('/');
+      }
+    };
 
-  public get inProduction(): boolean {
-    return this.$store.getters.activeProfiles.indexOf('prod') > -1;
-  }
-}
+    return {
+      logout,
+      subIsActive,
+      accountService,
+      openLogin,
+      changeLanguage,
+      languages: languages(),
+      isActiveLanguage,
+      version,
+      currentLanguage,
+      hasAnyAuthorityValues,
+      openAPIEnabled,
+      inProduction,
+      authenticated,
+      t$: useI18n().t,
+    };
+  },
+  methods: {
+    hasAnyAuthority(authorities: any): boolean {
+      this.accountService.hasAnyAuthorityAndCheckAuth(authorities).then(value => {
+        if (this.hasAnyAuthorityValues[authorities] !== value) {
+          this.hasAnyAuthorityValues = { ...this.hasAnyAuthorityValues, [authorities]: value };
+        }
+      });
+      return this.hasAnyAuthorityValues[authorities] ?? false;
+    },
+  },
+});

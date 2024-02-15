@@ -1,7 +1,7 @@
 {
   "logs": {
     "title": "Logboek",
-    "nbloggers": "Er zijn {{ total }} loggers.",
+    "nbloggers": "Er zijn { total } loggers.",
     "filter": "Filter",
     "table": {
       "name": "Naam",

@@ -48,14 +48,18 @@ public class CacheConfiguration {
             createCache(cm, com.delivery.app.domain.User.class.getName());
             createCache(cm, com.delivery.app.domain.Authority.class.getName());
             createCache(cm, com.delivery.app.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.delivery.app.domain.Producto.class.getName());
-            createCache(cm, com.delivery.app.domain.ProductoCategoria.class.getName());
-            createCache(cm, com.delivery.app.domain.ProductoCategoria.class.getName() + ".productos");
-            createCache(cm, com.delivery.app.domain.Cliente.class.getName());
-            createCache(cm, com.delivery.app.domain.Cliente.class.getName() + ".carts");
-            createCache(cm, com.delivery.app.domain.Carrito.class.getName());
-            createCache(cm, com.delivery.app.domain.Carrito.class.getName() + ".ordens");
-            createCache(cm, com.delivery.app.domain.ProductoOrden.class.getName());
+            createCache(cm, com.delivery.app.domain.Region.class.getName());
+            createCache(cm, com.delivery.app.domain.Country.class.getName());
+            createCache(cm, com.delivery.app.domain.Location.class.getName());
+            createCache(cm, com.delivery.app.domain.Department.class.getName());
+            createCache(cm, com.delivery.app.domain.Department.class.getName() + ".employees");
+            createCache(cm, com.delivery.app.domain.Task.class.getName());
+            createCache(cm, com.delivery.app.domain.Task.class.getName() + ".jobs");
+            createCache(cm, com.delivery.app.domain.Employee.class.getName());
+            createCache(cm, com.delivery.app.domain.Employee.class.getName() + ".jobs");
+            createCache(cm, com.delivery.app.domain.Job.class.getName());
+            createCache(cm, com.delivery.app.domain.Job.class.getName() + ".tasks");
+            createCache(cm, com.delivery.app.domain.JobHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

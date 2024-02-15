@@ -1,9 +1,0 @@
-{
-  "deliveryApp": {
-    "MetodoDePago": {
-      "null": "",
-      "EFECTIVO": "efectivo",
-      "CUPON": "cupon"
-    }
-  }
-}

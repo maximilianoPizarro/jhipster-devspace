@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240215215713"
+  },
+  "applications": ["delivery"],
+  "documentation": "Task entity.\\n@author The JHipster team.",
+  "entityTableName": "task",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Task",
+  "relationships": [
+    {
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "job",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
