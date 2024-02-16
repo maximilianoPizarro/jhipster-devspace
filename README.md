@@ -18,13 +18,13 @@
 
 ## Install JHipster DevSpace on OpenShift Dev Spaces
 
-1. Login with your Red Hat Account. https://console.redhat.com/openshift/sandbox
+1. Login with your Red Hat Account. https://console.redhat.com/openshift/sandbox. Select "OpenShift Dev Spaces".
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/redhat-console.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-2. Fork this repo and complete git url parameter with your repo info
+2. Fork this repo and complete Git Repo URL parameter with your repo info.
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/install-jhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
@@ -37,8 +37,7 @@
 
 ## Re-generate JHipster application from JDL File on Red Hat OpenShift Dev Spaces
 
-
-1. Open terminal and run:
+1. Open terminal on Red Hat OpenShift Dev Spaces and run.
 
 jhipster-devspace (master) $ rm -r app && mkdir app
 
@@ -48,7 +47,7 @@ rm -r app && mkdir app
 ```
 
 
-1. Copy jhipster-devspace-model.jdl to app directory:
+1. Copy jhipster-devspace-model.jdl to app directory.
 
 ```
 cp template-jdl/jhipster-devspace-model.jdl app
@@ -58,8 +57,9 @@ cp template-jdl/jhipster-devspace-model.jdl app
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-studio.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-3. Run 'jhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started :
-app (master) $
+3. Run 'jhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
+
+jhipster-devspace (master) $
 
 ```
 cd app
@@ -69,8 +69,8 @@ jhipster jdl jhipster-devspace-model.jdl
 ```bash
 Output:
 
-[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 jhipster-devspace]$ cd app
-[jboss@workspace9ebd5039e3b24f5e-6c59b9cf86-4gpc4 app]$ jhipster jdl jhipster-devspace-model.jdl
+jhipster-devspace (master) $ cd app
+app (master) $ jhipster jdl jhipster-devspace-model.jdl
 INFO! Using JHipster version installed globally
 INFO! Executing import-jdl jhipster-devspace-model.jdl
 INFO! The JDL is being parsed.
@@ -89,7 +89,7 @@ INFO! Generating 1 application.
 
                             https://www.jhipster.tech
 
-Welcome to JHipster v7.1.0
+Welcome to JHipster v8.1.0
 Application files will be generated in folder: /projects/jhipster-devspace/app
  _______________________________________________________________________________________________________________
 
@@ -99,14 +99,6 @@ Application files will be generated in folder: /projects/jhipster-devspace/app
 
  ______________________________________________________________________________
 
-  JHipster update available: 8.1.0 (current: 7.1.0)
-
-  Run npm install -g generator-jhipster to update.
-
- ______________________________________________________________________________
-
-This is an existing project, using the configuration from your .yo-rc.json file 
-to re-generate the project...
 ...more lines...
 Entity Producto generated successfully.
 Entity ProductoCategoria generated successfully.
@@ -117,6 +109,7 @@ INFO! Generator app succeed
 Congratulations, JHipster execution is complete!
 Sponsored with ❤️  by @oktadev.
 ```
+
 
 4. Run Development Mode the JHipster Application on Red Hat OpenShift Dev Spaces. 
 
@@ -136,11 +129,11 @@ Sponsored with ❤️  by @oktadev.
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-running.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-From terminal on Red Hat Openshift Dev Spaces
+From terminal on Red Hat Openshift Dev Spaces an Red Hat OpenShift
 
 By default, the repo contains a version generated for testing this section with the name "Delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
 
-1. Fork this repo and modify the yaml files with your environment keys:
+1. Fork this repo and modify the yaml files with your environment keys.
 
 ```bash
   k8s/overlay/develop/route.yaml <---
@@ -158,7 +151,7 @@ By default, the repo contains a version generated for testing this section with 
             value: jdbc:mariadb://mariadb.<NAMESPACE>.svc.cluster.local:3306/delivery                  
 ```
 
-2. Create a Tekton Pipeline with oc apply command:
+2. Create a Tekton Pipeline with oc apply command.
 
 ```bash
 jhipster-devspace (master) $ oc apply -f pipeline.yaml
@@ -171,7 +164,7 @@ task.tekton.dev/npm created
 pipeline.tekton.dev/jhipster-devspace created
 ```
 
-3. Run a Pipeline jhipster-space from Red Hat OpenShift Pipelines
+3. Run a Pipeline jhipster-space from Red Hat OpenShift Pipelines.
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
