@@ -1,7 +1,7 @@
 # JHipster v8.1.0 Monolithic application On Red Hat OpenShift Dev Spaces
 
 <p align="left">
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="java">
+<img src="https://img.shields.io/badge/java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="java">
 <img src="https://img.shields.io/badge/nodejs-68a063?style=for-the-badge&logo=javascript&logoColor=white" alt="nodejs">
 <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D" alt="VueJS">
 <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring"> 
@@ -42,7 +42,6 @@
 jhipster-devspace (master) $ rm -r app && mkdir app
 
 ```
-JAVA_HOME=$JAVA_HOME_17
 rm -r app && mkdir app
 ```
 
@@ -59,7 +58,7 @@ cp template-jdl/jhipster-devspace-model.jdl app
 
 3. Run 'jhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
 
-jhipster-devspace (master) $
+jhipster-devspace (master) $cd app && jhipster jdl jhipster-devspace-model.jdl
 
 ```
 cd app
@@ -235,7 +234,7 @@ The landing page should look like this:
 </p>
 
 
-## H2 Console Dev Mode 
+## H2 Console (DEV MODE) on Red Hat OpenShift Dev Spaces
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-state.PNG?raw=true" width="684" title="Run On Openshift">
