@@ -13,6 +13,10 @@
 </p>
 
 <p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-devspace-logo.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/coverjhipster.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
