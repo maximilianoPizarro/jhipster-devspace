@@ -133,6 +133,10 @@ Default Admin credentials: admin / admin
 
 ## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift ⭕
 
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-running.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
 From terminal on Red Hat Openshift Dev Spaces
 
 By default, the repo contains a version generated for testing this section with the name "delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
