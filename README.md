@@ -122,7 +122,7 @@ Sponsored with ❤️  by @oktadev.
 
 
 
-## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift ⭕
+## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-running.PNG?raw=true" width="684" title="Run On Openshift">
@@ -150,7 +150,7 @@ By default, the repo contains a version generated for testing this section with 
             value: jdbc:mariadb://mariadb.<NAMESPACE>.svc.cluster.local:3306/delivery                  
 ```
 
-2. Create a Tekton Pipeline with oc apply command.
+2. Create a Tekton Pipeline, Tekton Task and PVC with oc apply command.
 
 ```bash
 jhipster-devspace (master) $ oc apply -f pipeline.yaml
@@ -163,7 +163,7 @@ task.tekton.dev/npm created
 pipeline.tekton.dev/jhipster-devspace created
 ```
 
-3. Run a Pipeline jhipster-space from Red Hat OpenShift Pipelines.
+3. Run a Pipeline jhipster-devspace from Red Hat OpenShift Pipelines.
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
