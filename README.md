@@ -196,16 +196,16 @@ pipeline.tekton.dev/jhipster-devspace created
 </p>
 
 
-## An example of JDL modification to change the style of Bootswatch Theme (Optional)
+## An Example of JDL File modification to change the style of Bootswatch Theme (Optional)
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-delivery.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-Try to changing the value from "quartz" to "vapor" in "clientTheme" from template-jdl/jhipster-despace-model.jdl and run steps 1 to 4 for regenerate proyect. 
+Try to changing the value from "quartz" to "vapor" in "clientTheme" from template-jdl/jhipster-despace-model.jdl and run steps 1 to 4 for re-generate proyect section. 
 
 ```
-template-jdl/jhipster-despace-model
+template-jdl/jhipster-despace-model.jdl
 application {
   config {
   	applicationType monolith
