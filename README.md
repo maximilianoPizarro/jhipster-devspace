@@ -18,6 +18,14 @@
 
 ## Install JHipster DevSpace on OpenShift Dev Spaces
 
+1. Login with your red hat account https://console.redhat.com/openshift/sandbox
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/redhat-console.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+2. Fork this repo and complete git url with your fork repo info
+
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/install-jhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
@@ -27,8 +35,8 @@
 </p>
 
 
+## Re-generate JHipster application from JDL File on Red Hat OpenShift Dev Spaces
 
-## Re-generate JHipster application from JDL File
 
 1. Open terminal and run:
 
@@ -122,19 +130,52 @@ Sponsored with ❤️  by @oktadev.
 
 Default Admin credentials: admin / admin
 
-## H2 Console Dev Mode 
+
+## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift ⭕
+
+From terminal on Red Hat Openshift Dev Spaces
+
+Note. By default, the repo contains a version generated for testing this section with the name "delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
+
+1. Fork repo and modify the yaml files with your environment keys:
+
+
+  k8s/overlay/develop/route.yaml
+  spec:
+    host: delivery-<NAMESPACE>.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+
+  k8s/overlay/develop/deployment-patches.yaml
+    spec:
+      containers:
+      - name: delivery
+        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery
+        env:
+          - name: SPRING_DATASOURCE_URL
+            value: jdbc:mariadb://mariadb.<NAMESPACE>.svc.cluster.local:3306/delivery                  
+
+2. Create Tekton Pipeline:
+
+```bash
+jhipster-devspace (master) $ oc apply -f pipeline.yaml
+```
+
+```bash
+Output
+persistentvolumeclaim/workspace created
+task.tekton.dev/npm created
+pipeline.tekton.dev/jhipster-devspace created
+```
+
+3. Run Pipeline jhipster-space from OpenShift Pipelines
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-state.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipelines-form.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/h2-console.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipelines.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/h2-console-query.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
 
 
 ## An example of JDL modification to change the style of Bootswatch Theme (Optional)
@@ -175,18 +216,17 @@ The landing page should look like this:
 </p>
 
 
+## H2 Console Dev Mode 
 
-## Deploy JHipster v8.1.0 Monolithic application  on ⭕ Red Hat OpenShift ⭕
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-state.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
 
-1. From terminal on Red Hat Openshift Dev Spaces:
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/h2-console.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
 
-```bash
-jhipster-devspace (master) $ oc apply -f pipeline.yaml
-```
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/h2-console-query.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
 
-```bash
-Output
-persistentvolumeclaim/workspace created
-task.tekton.dev/npm created
-pipeline.tekton.dev/jhipster-devspace created
-```

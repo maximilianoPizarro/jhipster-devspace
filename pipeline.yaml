@@ -59,7 +59,8 @@ metadata:
   name: jhipster-devspace
 spec:
   params:
-    - default: 'image-registry.openshift-image-registry.svc:5000/mpizarro-dev/delivery'
+    - default: >-
+        image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
       name: IMAGE_NAME
       type: string
     - default: /app
@@ -170,7 +171,7 @@ spec:
         - name: IMAGE
           value: 'docker.io/library/node:18.18.2-alpine'
       runAfter:
-        - git-clone
+        - oc-apply-manifest
       taskRef:
         kind: Task
         name: npm
@@ -201,6 +202,20 @@ spec:
           value: latest
       runAfter:
         - s2i-binary-build
+      taskRef:
+        kind: ClusterTask
+        name: openshift-client
+      workspaces:
+        - name: manifest-dir
+          workspace: workspace
+    - name: oc-apply-manifest
+      params:
+        - name: SCRIPT
+          value: oc apply -k $(workspaces.manifest-dir.path)/k8s/overlay/develop
+        - name: VERSION
+          value: latest
+      runAfter:
+        - git-clone
       taskRef:
         kind: ClusterTask
         name: openshift-client

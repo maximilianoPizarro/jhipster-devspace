@@ -12,8 +12,8 @@ metadata:
     template.openshift.io/expose-root_password: '{.data[''database-root-password'']}'
     template.openshift.io/expose-username: '{.data[''database-user'']}'
 data:
-  database-name: bW9vZGxlZGI=
-  database-password: bW9vZGxl
+  database-name: ZGVsaXZlcnk=
+  database-password: ZGVsaXZlcnk=
   database-root-password: bW9vZGxl
-  database-user: bW9vZGxl
+  database-user: ZGVsaXZlcnk=
 type: Opaque
