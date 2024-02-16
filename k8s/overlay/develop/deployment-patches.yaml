@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "delivery:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[0].image"
+        }
+      ]
+spec:
+  template:
+    spec:
+      containers:
+      - name: delivery
+        image: image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: prod,api-docs
+          - name: JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET
+            value: YlhrdGMyVmpjbVYwTFhSdmEyVnVMWFJ2TFdOb1lXNW5aUzFwYmkxd2NtOWtkV04wYVc5dUxXRnVaQzEwYnkxclpXVndMV2x1TFdFdGMyVmpkWEpsTFhCc1lXTmwK
+          - name: SPRING_DATASOURCE_URL
+            value: jdbc:mariadb://mariadb.maximilianopizarro5-dev.svc.cluster.local:3306/delivery
+          - name: SPRING_DATASOURCE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mariadb
+                key: database-user
+          - name: SPRING_DATASOURCE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mariadb
+                key: database-password           

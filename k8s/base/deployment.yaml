@@ -1,0 +1,150 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/maximilianoPizarro/jhipster-devspace'
+  name: delivery
+  labels:
+    app: delivery
+    app.kubernetes.io/component: delivery
+    app.kubernetes.io/instance: delivery
+    app.kubernetes.io/name: delivery
+    app.kubernetes.io/part-of: delivery
+    app.openshift.io/runtime: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: delivery
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: delivery
+        app.openshift.io/runtime: java
+        deployment: delivery
+    spec:
+      containers:
+        - name: delivery
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  labels:
+    app: mariadb
+    app.kubernetes.io/component: mariadb
+    app.kubernetes.io/instance: mariadb
+    app.kubernetes.io/name: mariadb
+    app.kubernetes.io/part-of: delivery
+    app.openshift.io/runtime: mariadb
+spec:
+  strategy:
+    type: Recreate
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    activeDeadlineSeconds: 21600
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mariadb
+        app.openshift.io/runtime: mariadb
+        deployment: mariadb
+    spec:
+      volumes:
+        - name: mariadb-data
+          persistentVolumeClaim:
+            claimName: mariadb-data
+      containers:
+        - resources:
+            limits:
+              memory: 512Mi
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - '-i'
+                - '-c'
+                - MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin -u $MYSQL_USER ping
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: mariadb
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - '-i'
+                - '-c'
+                - MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin -u $MYSQL_USER ping
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: database-user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: database-password
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: database-root-password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: database-name
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: mariadb-data
+              mountPath: /var/lib/mysql/data
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/openshift/mariadb@sha256:513f7db527608c6c96b3659220ffc0397bdd30ff6617dad1790a90e14ac4f3b0
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler

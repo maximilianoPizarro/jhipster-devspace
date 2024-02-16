@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: delivery
+    app.kubernetes.io/component: delivery
+    app.kubernetes.io/instance: delivery
+    app.kubernetes.io/name: delivery
+    app.kubernetes.io/part-of: delivery
+    app.openshift.io/runtime: php
+  name: delivery
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: delivery
+    deployment: delivery
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mariadb
+    app.kubernetes.io/component: mariadb
+    app.kubernetes.io/instance: mariadb
+    app.kubernetes.io/name: mariadb
+    app.kubernetes.io/part-of: delivery
+  name: mariadb
+spec:
+  ports:
+    - name: 3306-tcp
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+  selector:
+    app: mariadb
+    deployment: mariadb 

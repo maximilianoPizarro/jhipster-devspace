@@ -1,0 +1,11 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: delivery
+  labels:
+    app.kubernetes.io/instance: delivery
+    app.kubernetes.io/name: delivery
+    app.kubernetes.io/part-of: delivery      
+spec:
+  lookupPolicy:
+    local: false

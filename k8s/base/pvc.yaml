@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-data
+  labels:
+    app.kubernetes.io/instance: delivery
+    app.kubernetes.io/name: delivery
+    app.kubernetes.io/part-of: delivery      
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi

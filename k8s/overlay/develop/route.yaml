@@ -1,0 +1,21 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: delivery
+  labels:
+    app: delivery
+    app.kubernetes.io/component: delivery
+    app.kubernetes.io/instance: delivery
+    app.kubernetes.io/name: delivery
+    app.kubernetes.io/part-of: delivery
+spec:
+  host: delivery-maximilianopizarro5-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+  to:
+    kind: Service
+    name: delivery
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect    
