@@ -169,11 +169,11 @@ pipeline.tekton.dev/jhipster-devspace created
 3. Run Pipeline jhipster-space from OpenShift Pipelines
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipelines-form.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipelines.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 
