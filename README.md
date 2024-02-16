@@ -128,7 +128,6 @@ Sponsored with ❤️  by @oktadev.
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-delivery-devspace-run.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-Default Admin credentials: admin / admin
 
 
 ## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift ⭕
@@ -139,7 +138,7 @@ Default Admin credentials: admin / admin
 
 From terminal on Red Hat Openshift Dev Spaces
 
-By default, the repo contains a version generated for testing this section with the name "delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
+By default, the repo contains a version generated for testing this section with the name "Delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
 
 1. Fork this repo and modify the yaml files with your environment keys:
 
@@ -182,6 +181,27 @@ pipeline.tekton.dev/jhipster-devspace created
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
+4. View Topology and logs java POD.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/delivery-topology.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-logs.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+5. Check in your browser the app run in production mode, status and metric views.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-status.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-mecric.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
 
 
 ## An example of JDL modification to change the style of Bootswatch Theme (Optional)
