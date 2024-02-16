@@ -192,7 +192,7 @@ pipeline.tekton.dev/jhipster-devspace created
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-status.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-mecric.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-metric.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 
