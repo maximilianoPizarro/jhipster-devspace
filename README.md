@@ -18,13 +18,13 @@
 
 ## Install JHipster DevSpace on OpenShift Dev Spaces
 
-1. Login with your red hat account https://console.redhat.com/openshift/sandbox
+1. Login with your Red Hat Account. https://console.redhat.com/openshift/sandbox
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/redhat-console.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-2. Fork this repo and complete git url with your fork repo info
+2. Fork this repo and complete git url parameter with your repo info
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/install-jhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
@@ -118,7 +118,7 @@ Congratulations, JHipster execution is complete!
 Sponsored with ❤️  by @oktadev.
 ```
 
-4. Run Development Mode the JHipster Application. 
+4. Run Development Mode the JHipster Application on Red Hat OpenShift Dev Spaces. 
 
 ```
 ./mvnw
@@ -135,25 +135,27 @@ Default Admin credentials: admin / admin
 
 From terminal on Red Hat Openshift Dev Spaces
 
-Note. By default, the repo contains a version generated for testing this section with the name "delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
+By default, the repo contains a version generated for testing this section with the name "delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
 
-1. Fork repo and modify the yaml files with your environment keys:
+1. Fork this repo and modify the yaml files with your environment keys:
 
-
-  k8s/overlay/develop/route.yaml
+```bash
+  k8s/overlay/develop/route.yaml <---
   spec:
     host: delivery-<NAMESPACE>.apps.sandbox-m2.ll9k.p1.openshiftapps.com
-
-  k8s/overlay/develop/deployment-patches.yaml
+```
+```
+  k8s/overlay/develop/deployment-patches.yaml <---
     spec:
       containers:
       - name: delivery
-        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery
+        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery 
         env:
           - name: SPRING_DATASOURCE_URL
             value: jdbc:mariadb://mariadb.<NAMESPACE>.svc.cluster.local:3306/delivery                  
+```
 
-2. Create Tekton Pipeline:
+2. Create a Tekton Pipeline with oc apply command:
 
 ```bash
 jhipster-devspace (master) $ oc apply -f pipeline.yaml
@@ -166,7 +168,7 @@ task.tekton.dev/npm created
 pipeline.tekton.dev/jhipster-devspace created
 ```
 
-3. Run Pipeline jhipster-space from OpenShift Pipelines
+3. Run a Pipeline jhipster-space from Red Hat OpenShift Pipelines
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
