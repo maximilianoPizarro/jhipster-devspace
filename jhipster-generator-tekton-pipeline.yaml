@@ -80,6 +80,7 @@ spec:
       value: $(params.GITLAB_USERNAME)  
     script: |
       #!/bin/sh
+      wget https://raw.githubusercontent.com/maximilianoPizarro/jhipster-devspace/master/devfile.yaml
       git config --global --add safe.directory $(workspaces.source.path)
       git config --global user.email $(params.GITLAB_EMAIL)
       git config --global user.name $(params.GITLAB_USERNAME)
