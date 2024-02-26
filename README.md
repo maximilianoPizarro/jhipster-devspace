@@ -234,9 +234,13 @@ https://gitlab.com/-/user_settings/personal_access_tokens
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-push.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
+
+4. Check your GitLab Repository to see if the app was created
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-gitlab.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
+
+NOTE: You need destroy jhipster-devspace workspace for try devspaces app create because the application was build with devfile.yaml from this repository.
 
 
 ## An Example of JDL File modification to change the style of Bootswatch Theme (Optional)
