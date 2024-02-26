@@ -215,10 +215,6 @@ task.tekton.dev/jhipster-generator configured
 pipeline.tekton.dev/jhipster-generator-tekton-pipeline created
 ```
 
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-jhipster.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
-
 2. Generate Access Token from your gitlab repo with api, read_repository, write_repository rule.
 
 ```
