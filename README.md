@@ -194,25 +194,27 @@ pipeline.tekton.dev/jhipster-devspace created
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-metric.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-## JHipster Generator Tekton Pipeline (from Oficial JHipster v8.1.0)
+## JHipster & PyHipster Generator Tekton Pipeline (Oficial JHipster v8.1.0 & PyHipster 0.0.9)
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-jhipster.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 
-1. Create Pipeline jhipster-generator-tekton-pipeline
+1. Create Pipeline jhipster-pyhipster-generator-pipeline
 
 ```
-oc apply -f jhipster-generator-tekton-pipeline.yaml 
+oc apply -f jhipster-pyhipster-generator-pipeline.yaml 
 ```
 
 ```
 Output
-jhipster-devspace (master) $ oc apply -f jhipster-generator-tekton-pipeline.yaml 
-persistentvolumeclaim/workspace configured
-task.tekton.dev/jhipster-generator configured
-pipeline.tekton.dev/jhipster-generator-tekton-pipeline created
+jhipster-devspace (master) $ oc apply -f jhipster-pyhipster-generator-pipeline.yaml 
+persistentvolumeclaim/workspace created
+task.tekton.dev/cleanup-workspace created
+task.tekton.dev/pyhipster-generator created
+task.tekton.dev/jhipster-generator created
+pipeline.tekton.dev/jhipster-pyhipster-generator-pipeline created
 ```
 
 2. Generate Access Token from your gitlab repo with api, read_repository, write_repository rule.
@@ -240,7 +242,8 @@ https://gitlab.com/-/user_settings/personal_access_tokens
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-gitlab.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-NOTE: You need destroy jhipster-devspace workspace for try devspaces app create because the application was build with devfile.yaml from this repository.
+NOTE: You need destroy jhipster-devspace or pyhipster-devpsace workspace for try devspaces app create because the application was build with devfile.yaml from this repository.
+Custom tasks "cleanup-workspace" fail but work because remove all files from directory workspace and don't remove mountpath.
 
 
 ## An Example of JDL File modification to change the style of Bootswatch Theme (Optional)
