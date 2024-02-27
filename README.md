@@ -199,6 +199,9 @@ pipeline.tekton.dev/jhipster-devspace created
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-jhipster.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-pyhipster.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
 
 
 1. Create Pipeline jhipster-pyhipster-generator-pipeline
@@ -229,6 +232,11 @@ https://gitlab.com/-/user_settings/personal_access_tokens
 
 
 3. Run pipeline jhipster-generator-tekton-pipeline on OpenShift Pipeline. Complate de GITLAB paramaters with your repo info.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-generator-dockerio-form.PNG?raw=true" width="684" title="Run On Openshift">
