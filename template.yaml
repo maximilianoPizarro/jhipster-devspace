@@ -43,10 +43,10 @@ metadata:
     template.openshift.io/expose-root_password: '{.data[''database-root-password'']}'
     template.openshift.io/expose-username: '{.data[''database-user'']}'
 data:
-  database-name: ZGVsaXZlcnk=
-  database-password: ZGVsaXZlcnk=
-  database-root-password: bW9vZGxl
-  database-user: ZGVsaXZlcnk=
+  database-name: amhpcHN0ZXJvbmxpbmU=
+  database-password: amhpcHN0ZXI=
+  database-root-password: amhpcHN0ZXI=
+  database-user: amhpcHN0ZXI=
 type: Opaque
 ---
 kind: BuildConfig
@@ -116,7 +116,7 @@ spec:
             - name: JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET
               value: YlhrdGMyVmpjbVYwTFhSdmEyVnVMWFJ2TFdOb1lXNW5aUzFwYmkxd2NtOWtkV04wYVc5dUxXRnVaQzEwYnkxclpXVndMV2x1TFdFdGMyVmpkWEpsTFhCc1lXTmwK
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mariadb://mariadb-jhipster.maximilianopizarro5-dev.svc.cluster.local:3306/jhipster
+              value: jdbc:mariadb://mariadb-jhipster.maximilianopizarro5-dev.svc.cluster.local:3306/jhipsteronline
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
