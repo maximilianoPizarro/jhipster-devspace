@@ -3,7 +3,7 @@ metadata:
   name: jhipster
   version: 2.1.0
   description: Stack with the JHipster Online on DevSpaces
-  displayName: JHipster Online
+  displayName: JHipster DevSpaces
   icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/java-maven.jpg
   versions:
     - version: v2.33.0
@@ -54,8 +54,8 @@ commands:
     exec:
       label: 'Create Tekton Pipeline and install npm dependencies'
       component: tools
-      workingDir: ${PROJECTS_ROOT}/jhipster
-      commandLine: 'oc apply -f jhipster-pipeline.yaml && npm install && chmod 777 ./mvnw'
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: 'oc apply -f pipeline.yaml && npm install && chmod 777 ./mvnw'
       group:
         kind: build
         isDefault: true
@@ -63,7 +63,7 @@ commands:
     exec:
       label: 'Run ./mvnw'
       component: tools
-      workingDir: ${PROJECTS_ROOT}/jhipster
+      workingDir: ${PROJECT_SOURCE}
       commandLine: './mvnw'
       group:
         kind: run
