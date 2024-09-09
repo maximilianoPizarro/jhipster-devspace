@@ -95,7 +95,7 @@ metadata:
     app.kubernetes.io/part-of: jhipster
     app.openshift.io/runtime: java
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: jhipster
