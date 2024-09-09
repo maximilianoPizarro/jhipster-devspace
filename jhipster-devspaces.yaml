@@ -1,0 +1,70 @@
+schemaVersion: 2.1.0
+metadata:
+  name: jhipster
+  version: 2.1.0
+  description: Stack with the JHipster Online on DevSpaces
+  displayName: JHipster Online
+  icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/java-maven.jpg
+  versions:
+    - version: v2.33.0
+      default: true
+components:
+  - name: tools
+    container:
+      image: 'quay.io/maximilianopizarro/jhipster-devspace'
+      mountSources: true
+      cpuLimit: '4'
+      cpuRequest: '1'
+      memoryLimit: '8G'
+      memoryRequest: '4G'
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+        - name: config
+          path: /home/user/.config
+        - name: npm
+          path: /home/user/.npm
+      endpoints:
+        - exposure: public
+          name: backend
+          protocol: https
+          targetPort: 8080
+        - exposure: public
+          name: frontend
+          protocol: https
+          targetPort: 9000
+      env:
+        - value: '-XX:MaxRAMPercentage=50.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xms20m -Djava.security.egd=file:/dev/./urandom -Duser.home=/home/jboss'
+          name: JAVA_OPTS
+        - value: $(JAVA_OPTS)
+          name: MAVEN_OPTS
+        - value: '/home/tooling/.sdkman/candidates/java/11.0.15-tem'
+          name: JAVA_HOME
+  - name: m2
+    volume:
+      size: 512Mi
+  - name: config
+    volume:
+      size: 512Mi
+  - name: npm
+    volume:
+      size: 512Mi
+commands:
+  - id: build
+    exec:
+      label: 'Create Tekton Pipeline and install npm dependencies'
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/jhipster
+      commandLine: 'oc apply -f jhipster-pipeline.yaml && npm install && chmod 777 ./mvnw'
+      group:
+        kind: build
+        isDefault: true
+  - id: run
+    exec:
+      label: 'Run ./mvnw'
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/jhipster
+      commandLine: './mvnw'
+      group:
+        kind: run
+        isDefault: true
